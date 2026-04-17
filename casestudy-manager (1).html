@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — Coaching with Authenticity | Fikayo Adewumi, PhD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F5E9DA;
+  --warm-off: #F5E9DA;
+  --terracotta: #D97757;
+  --rust: #B85E3A;
+  --deep: #1A0F08;
+  --brown: #7C5A4B;
+  --sand: #D4A882;
+  --muted: #7C5A4B;
+  --light-muted: #C4A898;
+  --border: rgba(124,90,75,0.15);
+  --border-strong: rgba(124,90,75,0.25);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'DM Sans',sans-serif;background:var(--warm-off);color:var(--deep);overflow-x:hidden;line-height:1.6;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--cream);}
+::-webkit-scrollbar-thumb{background:var(--sand);border-radius:2px;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 3.5rem;background:rgba(245,233,218,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border);transition:padding 0.3s;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--brown);text-decoration:none;}
+.nav-back{font-size:0.72rem;font-weight:400;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.25s;}
+.nav-back:hover{color:var(--terracotta);}
+.nav-cta{font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--warm-off);background:var(--terracotta);padding:0.55rem 1.4rem;border-radius:2px;text-decoration:none;transition:background 0.25s;}
+.nav-cta:hover{background:var(--rust);}
+
+.cs-hero{min-height:70vh;background:var(--deep);display:flex;flex-direction:column;justify-content:flex-end;padding:8rem 0 5rem;position:relative;overflow:hidden;}
+.cs-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 30%,rgba(217,119,87,0.18) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(212,168,130,0.1) 0%,transparent 50%);pointer-events:none;}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 3.5rem;position:relative;z-index:1;}
+.cs-tag{font-size:0.65rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--sand);display:flex;align-items:center;gap:0.8rem;margin-bottom:1.5rem;}
+.cs-tag::before{content:'';display:inline-block;width:20px;height:1px;background:var(--sand);}
+.cs-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:300;line-height:1.1;color:var(--cream);max-width:800px;margin-bottom:2rem;letter-spacing:-0.01em;}
+.cs-hero-title em{font-style:italic;color:var(--sand);}
+.cs-meta{display:flex;gap:3rem;flex-wrap:wrap;}
+.meta-label{font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;}
+.meta-val{font-size:0.88rem;font-weight:300;color:var(--light-muted);}
+
+.metrics-bar{background:var(--terracotta);padding:2.5rem 0;}
+.metrics-inner{max-width:1200px;margin:0 auto;padding:0 3.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-left:1px solid rgba(255,255,255,0.15);}
+.metric-box{padding:0 2.5rem;border-right:1px solid rgba(255,255,255,0.15);text-align:center;}
+.metric-big{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:#fff;line-height:1;}
+.metric-desc{font-size:0.7rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:0.4rem;}
+
+.cs-content{max-width:1200px;margin:0 auto;padding:0 3.5rem;}
+.cs-section{padding:5rem 0;border-bottom:0.5px solid var(--border);}
+.cs-section:last-child{border-bottom:none;}
+.section-tag{font-size:0.65rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--terracotta);display:flex;align-items:center;gap:0.8rem;margin-bottom:1rem;}
+.section-tag::before{content:'';display:inline-block;width:20px;height:1px;background:var(--terracotta);}
+.section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;line-height:1.2;color:var(--deep);margin-bottom:1.5rem;letter-spacing:-0.01em;}
+.section-heading em{font-style:italic;color:var(--terracotta);}
+.body-text{font-size:1rem;font-weight:300;line-height:1.9;color:var(--brown);max-width:720px;}
+.body-text p+p{margin-top:1.2rem;}
+.body-text strong{font-weight:500;color:var(--deep);}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.problem-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:start;}
+.problem-visual{background:var(--deep);border-radius:2px;padding:3rem;position:relative;overflow:hidden;}
+.problem-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 20% 80%,rgba(217,119,87,0.15) 0%,transparent 60%);}
+.stat-highlight{position:relative;z-index:1;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(245,233,218,0.08);}
+.stat-highlight:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.stat-big{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--terracotta);line-height:1;}
+.stat-context{font-size:0.82rem;font-weight:300;color:var(--light-muted);line-height:1.6;margin-top:0.5rem;}
+
+.insight-card{background:#fff;border:1px solid var(--border);border-radius:2px;padding:1.8rem;transition:border-color 0.25s;}
+.insight-card:hover{border-color:var(--terracotta);}
+.insight-num{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--terracotta);letter-spacing:0.1em;margin-bottom:0.8rem;}
+.insight-title{font-size:0.9rem;font-weight:500;color:var(--deep);margin-bottom:0.5rem;}
+.insight-text{font-size:0.8rem;font-weight:300;color:var(--muted);line-height:1.65;}
+
+/* JOURNEY MAP */
+.journey-map{margin-top:3rem;border:1px solid var(--border);border-radius:2px;overflow:hidden;}
+.journey-header{display:grid;grid-template-columns:repeat(8,1fr);background:var(--deep);border-bottom:1px solid rgba(245,233,218,0.08);}
+.journey-week{padding:1rem;text-align:center;border-right:1px solid rgba(245,233,218,0.08);font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--light-muted);}
+.journey-week:last-child{border-right:none;}
+.journey-row{display:grid;grid-template-columns:repeat(8,1fr);border-bottom:1px solid var(--border);}
+.journey-row:last-child{border-bottom:none;}
+.journey-cell{padding:1rem 0.8rem;border-right:1px solid var(--border);font-size:0.72rem;font-weight:300;color:var(--muted);line-height:1.5;min-height:80px;}
+.journey-cell:last-child{border-right:none;}
+.journey-cell.active{background:#fff;color:var(--deep);font-weight:400;}
+.journey-cell.highlight{background:rgba(217,119,87,0.06);color:var(--brown);}
+.journey-label{padding:1rem 1.2rem;background:var(--cream);border-bottom:1px solid var(--border);font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--terracotta);}
+
+/* MODALITY CARDS */
+.modality-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;margin-top:2.5rem;border:1px solid var(--border);border-radius:2px;overflow:hidden;}
+.modality-card{background:#fff;padding:2.2rem;transition:background 0.25s;}
+.modality-card:hover{background:var(--cream);}
+.modality-icon{width:44px;height:44px;border-radius:50%;border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;background:var(--cream);}
+.m-svg{width:18px;height:18px;stroke:var(--terracotta);stroke-width:1.5;fill:none;}
+.modality-name{font-size:0.95rem;font-weight:500;color:var(--deep);margin-bottom:0.4rem;}
+.modality-tag{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--terracotta);letter-spacing:0.08em;margin-bottom:0.8rem;}
+.modality-desc{font-size:0.8rem;font-weight:300;color:var(--muted);line-height:1.65;}
+
+.approach-steps{display:flex;flex-direction:column;gap:0;margin-top:2.5rem;border:1px solid var(--border);border-radius:2px;overflow:hidden;}
+.approach-step{display:grid;grid-template-columns:80px 1fr;gap:0;border-bottom:1px solid var(--border);transition:background 0.25s;}
+.approach-step:last-child{border-bottom:none;}
+.approach-step:hover{background:rgba(217,119,87,0.03);}
+.step-num-col{padding:2rem;border-right:1px solid var(--border);display:flex;align-items:flex-start;justify-content:center;}
+.step-num-label{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--terracotta);letter-spacing:0.1em;}
+.step-content{padding:2rem 2.5rem;}
+.step-title{font-size:0.95rem;font-weight:500;color:var(--deep);margin-bottom:0.5rem;}
+.step-desc{font-size:0.85rem;font-weight:300;color:var(--muted);line-height:1.7;}
+
+.decision-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;margin-top:2.5rem;border:1px solid var(--border);border-radius:2px;overflow:hidden;}
+.decision-card{background:#fff;padding:2.2rem;transition:background 0.25s;}
+.decision-card:hover{background:var(--cream);}
+.decision-icon{width:40px;height:40px;border-radius:50%;border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;background:var(--cream);}
+.d-svg{width:17px;height:17px;stroke:var(--terracotta);stroke-width:1.5;fill:none;}
+.decision-title{font-size:0.9rem;font-weight:500;color:var(--deep);margin-bottom:0.5rem;}
+.decision-text{font-size:0.8rem;font-weight:300;color:var(--muted);line-height:1.65;}
+.decision-why{font-size:0.72rem;font-weight:500;color:var(--terracotta);margin-top:0.8rem;letter-spacing:0.05em;}
+
+.results-section{background:var(--deep);margin:0 -3.5rem;padding:5rem 3.5rem;}
+.results-section .section-heading{color:var(--cream);}
+.results-section .section-tag{color:var(--sand);}
+.results-section .section-tag::before{background:var(--sand);}
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;margin-top:3rem;border:1px solid rgba(245,233,218,0.08);border-radius:2px;overflow:hidden;}
+.result-card{background:rgba(245,233,218,0.03);padding:2.5rem 2rem;border-right:1px solid rgba(245,233,218,0.08);transition:background 0.3s;}
+.result-card:last-child{border-right:none;}
+.result-card:hover{background:rgba(217,119,87,0.07);}
+.result-num{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:300;color:var(--sand);line-height:1;margin-bottom:0.5rem;}
+.result-label{font-size:0.75rem;font-weight:500;color:var(--cream);margin-bottom:0.5rem;}
+.result-desc{font-size:0.78rem;font-weight:300;color:var(--light-muted);line-height:1.6;}
+
+.learner-voice{background:var(--cream);border:1px solid var(--border);border-radius:2px;padding:3.5rem;margin-top:3rem;}
+.lv-quote{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;font-style:italic;color:var(--brown);line-height:1.6;max-width:700px;}
+.lv-quote::before{content:'\201C';font-size:4rem;color:var(--terracotta);opacity:0.3;display:block;line-height:1;margin-bottom:-0.8rem;}
+.lv-attr{font-size:0.75rem;color:var(--muted);margin-top:1.5rem;letter-spacing:0.05em;}
+
+.lessons-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5px;margin-top:2.5rem;border:1px solid var(--border);border-radius:2px;overflow:hidden;}
+.lesson-card{background:#fff;padding:2rem;transition:background 0.25s;}
+.lesson-card:hover{background:var(--cream);}
+.lesson-num{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--terracotta);letter-spacing:0.1em;margin-bottom:0.8rem;}
+.lesson-title{font-size:0.9rem;font-weight:500;color:var(--deep);margin-bottom:0.5rem;}
+.lesson-text{font-size:0.8rem;font-weight:300;color:var(--muted);line-height:1.65;}
+
+.next-cs{background:var(--terracotta);padding:4rem 0;}
+.next-inner{max-width:1200px;margin:0 auto;padding:0 3.5rem;display:flex;justify-content:space-between;align-items:center;}
+.next-label{font-size:0.65rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.5rem;}
+.next-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:#fff;line-height:1.2;}
+.next-btn{font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--terracotta);background:#fff;padding:0.85rem 2rem;border-radius:2px;text-decoration:none;white-space:nowrap;transition:background 0.25s;flex-shrink:0;margin-left:3rem;}
+.next-btn:hover{background:var(--cream);}
+
+footer{background:var(--deep);border-top:1px solid rgba(245,233,218,0.06);padding:2.5rem 3.5rem;display:flex;justify-content:space-between;align-items:center;}
+.footer-copy{font-size:0.72rem;font-weight:300;color:rgba(196,168,152,0.45);letter-spacing:0.05em;}
+.footer-links{display:flex;gap:2rem;}
+.footer-links a{font-size:0.68rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,168,152,0.35);text-decoration:none;transition:color 0.25s;}
+.footer-links a:hover{color:var(--sand);}
+
+@media(max-width:1024px){
+  nav{padding:1.2rem 2rem;}
+  .hero-inner,.cs-content{padding:0 2rem;}
+  .metrics-inner{grid-template-columns:repeat(2,1fr);}
+  .problem-grid,.two-col{grid-template-columns:1fr;gap:3rem;}
+  .decision-grid,.lessons-grid,.modality-grid{grid-template-columns:1fr;}
+  .results-grid{grid-template-columns:1fr;}
+  .results-section{margin:0 -2rem;padding:4rem 2rem;}
+  .next-inner{flex-direction:column;gap:2rem;text-align:center;}
+  .next-btn{margin-left:0;}
+  footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem;}
+  .journey-map{overflow-x:auto;}
+}
+@media(max-width:640px){
+  .cs-meta{flex-direction:column;gap:1.5rem;}
+  .metrics-inner{grid-template-columns:1fr 1fr;}
+  .approach-step{grid-template-columns:60px 1fr;}
+}
+
+.cs-image-placeholder{width:100%;aspect-ratio:16/9;background:var(--deep);border-radius:2px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.8rem;margin-top:3rem;border:1px dashed rgba(245,233,218,0.15);position:relative;overflow:hidden;}
+.cs-image-placeholder::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(217,119,87,0.08) 0%,transparent 70%);}
+.cs-image-icon{width:48px;height:48px;border-radius:50%;border:1px solid rgba(245,233,218,0.15);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;}
+.cs-image-hint{font-size:0.7rem;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:rgba(196,168,152,0.4);position:relative;z-index:1;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Fikayo Adewumi, PhD</a>
+  <a href="index.html#work" class="nav-back">← Back to Portfolio</a>
+  <a href="index.html#contact" class="nav-cta">Let's Connect</a>
+</nav>
+
+<!-- HERO -->
+<section class="cs-hero">
+  <div class="hero-inner">
+    <div class="cs-tag">Case Study — Leadership Development & Train-the-Trainer</div>
+    <h1 class="cs-hero-title">Coaching with Authenticity — <em>8-Week Blended Learning Journey</em></h1>
+    <div class="cs-meta">
+      <div class="meta-item"><div class="meta-label">Industry</div><div class="meta-val">Tech / Startup</div></div>
+      <div class="meta-item"><div class="meta-label">Scope</div><div class="meta-val">200+ Managers</div></div>
+      <div class="meta-item"><div class="meta-label">Duration</div><div class="meta-val">16 Weeks (Design & Delivery)</div></div>
+      <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-val">Lead Instructional Designer, Facilitator & Train-the-Trainer Lead</div></div>
+      <div class="meta-item"><div class="meta-label">Modalities</div><div class="meta-val">Face-to-Face, Zoom, Async eLearning, Train-the-Trainer</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS BAR -->
+<div class="metrics-bar">
+  <div class="metrics-inner">
+    <div class="metric-box"><div class="metric-big">200+</div><div class="metric-desc">Managers Cohorted</div></div>
+    <div class="metric-box"><div class="metric-big">4.8/5</div><div class="metric-desc">Satisfaction Score</div></div>
+    <div class="metric-box"><div class="metric-big">↓22%</div><div class="metric-desc">Team Attrition</div></div>
+    <div class="metric-box"><div class="metric-big">91%</div><div class="metric-desc">Completion Rate</div></div>
+  </div>
+</div>
+
+<div class="cs-content">
+      <div class="cs-image-placeholder">
+        <div class="cs-image-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(196,168,152,0.4)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <div class="cs-image-hint">Add project image here</div>
+      </div>
+
+  <!-- OVERVIEW -->
+  <div class="cs-section">
+    <div class="two-col">
+      <div>
+        <div class="section-tag">Overview</div>
+        <h2 class="section-heading">The <em>Situation</em></h2>
+        <div class="body-text">
+          <p>A fast-scaling tech startup had a problem common to high-growth companies: their best individual contributors were being promoted into management roles with little to no preparation. The company was doubling headcount every 12 months, and the pipeline of new managers couldn't keep pace with the growth.</p>
+          <p>Within 6 months of promotion, <strong>nearly a third of new managers were struggling</strong> — missing 1:1s, mishandling performance conversations, and failing to retain their direct reports. Employee engagement scores in teams led by new managers were consistently 18 points below company average.</p>
+          <p>I was engaged to design and deliver <strong>Coaching with Authenticity</strong> — a structured, blended learning journey that would equip first-time managers with the mindsets, skills, and tools they needed to lead effectively from day one. A train-the-trainer component was also built to enable internal facilitators to sustain and scale the program beyond the initial engagement.</p>
+        </div>
+      </div>
+      <div>
+        <div class="section-tag">The Core Challenge</div>
+        <h2 class="section-heading">From <em>Brilliant Individual</em> to Effective Leader</h2>
+        <div class="body-text">
+          <p>The transition from individual contributor to manager is one of the hardest shifts in a professional career — and it's especially acute in tech startups, where the culture often celebrates individual output above all else.</p>
+          <p>New managers at this company were walking into roles with <strong>no formal preparation, no peer community, and no shared language</strong> for the challenges they were facing. Many didn't know what good management looked like. Others knew intellectually but had never practiced the skills in a safe environment.</p>
+          <p>The solution required more than content delivery. It needed to build a cohort identity, create space for practice and reflection, and connect learning directly to the real situations these managers were living every week.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCOVERY -->
+  <div class="cs-section">
+    <div class="problem-grid">
+      <div>
+        <div class="section-tag">Discovery & Diagnosis</div>
+        <h2 class="section-heading">What the <em>Research Revealed</em></h2>
+        <div class="body-text">
+          <p>Before designing a single module, I conducted a thorough needs analysis — interviewing new managers, their direct reports, senior leaders, and HR business partners. I also reviewed exit interview data, engagement survey results, and 360 feedback reports from the previous year.</p>
+          <p>The data pointed to three consistent pain points that shaped every design decision in the program.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1.5px;margin-top:2rem;border:1px solid var(--border);border-radius:2px;overflow:hidden;">
+          <div class="insight-card" style="border:none;border-bottom:1px solid var(--border);border-radius:0;">
+            <div class="insight-num">Finding 01</div>
+            <div class="insight-title">No Shared Framework for Leadership</div>
+            <div class="insight-text">Managers were operating from instinct, mimicking former managers (good and bad), or defaulting to doing the work themselves. There was no common language or model for what "good management" looked like at this company.</div>
+          </div>
+          <div class="insight-card" style="border:none;border-bottom:1px solid var(--border);border-radius:0;">
+            <div class="insight-num">Finding 02</div>
+            <div class="insight-title">Isolation Was the Biggest Risk Factor</div>
+            <div class="insight-text">New managers reported feeling alone in their challenges. They were reluctant to surface struggles to their own managers for fear of appearing incompetent. Peer connection was the most requested support — and the most absent.</div>
+          </div>
+          <div class="insight-card" style="border:none;border-radius:0;">
+            <div class="insight-num">Finding 03</div>
+            <div class="insight-title">Skills Needed Practice, Not Just Explanation</div>
+            <div class="insight-text">New managers consistently said they understood the concepts (giving feedback, running 1:1s, handling conflict) but froze when they had to do them. Knowledge without rehearsal wasn't transferring to behavior.</div>
+          </div>
+        </div>
+      </div>
+      <div class="problem-visual">
+        <div class="stat-highlight">
+          <div class="stat-big">32%</div>
+          <div class="stat-context">Of new managers were flagged as struggling within 6 months of promotion — affecting their teams' performance and morale</div>
+        </div>
+        <div class="stat-highlight">
+          <div class="stat-big">↓18pts</div>
+          <div class="stat-context">Engagement score gap between teams led by new managers vs. experienced managers — a signal the org could not ignore</div>
+        </div>
+        <div class="stat-highlight">
+          <div class="stat-big">0</div>
+          <div class="stat-context">Formal leadership development resources available to new managers before this program was designed — they were on their own</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRAM DESIGN -->
+  <div class="cs-section">
+    <div class="section-tag">Program Architecture</div>
+    <h2 class="section-heading">An 8-Week <em>Blended Journey</em></h2>
+    <div class="body-text">
+      <p>The program was designed as a cohort-based blended learning journey — combining face-to-face workshops, live virtual sessions over Zoom, and self-paced async modules. Each modality was chosen deliberately: synchronous sessions for practice and connection, async content for concepts and reflection.</p>
+      <p>Cohorts of 20–25 managers moved through the program together, creating the peer community that research identified as the missing ingredient.</p>
+    </div>
+
+    <div class="modality-grid">
+      <div class="modality-card">
+        <div class="modality-icon"><svg class="m-svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="modality-name">Face-to-Face Workshops</div>
+        <div class="modality-tag">Weeks 1 & 5 — Full Day</div>
+        <div class="modality-desc">Two in-person full-day sessions anchored the journey. Week 1 focused on the mindset shift from individual contributor to leader and building cohort trust. Week 5 was a mid-point skills lab with live practice of feedback conversations, difficult discussions, and coaching techniques — using role play, peer observation, and structured debrief.</div>
+      </div>
+      <div class="modality-card">
+        <div class="modality-icon"><svg class="m-svg" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="modality-name">Live Virtual Sessions (Zoom)</div>
+        <div class="modality-tag">Weekly — 60 Minutes</div>
+        <div class="modality-desc">Six weekly Zoom sessions kept the cohort connected between in-person touchpoints. Each session opened with a structured peer check-in, followed by a facilitated skill practice or case discussion, and closed with commitment-setting for the week ahead. Breakout rooms were used extensively for peer coaching pairs.</div>
+      </div>
+      <div class="modality-card">
+        <div class="modality-icon"><svg class="m-svg" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <div class="modality-name">Async eLearning Modules</div>
+        <div class="modality-tag">Weekly — Self-Paced</div>
+        <div class="modality-desc">Eight short async modules (20–30 minutes each) delivered conceptual foundations ahead of each live session, so synchronous time could focus entirely on practice and application. Built in Articulate Rise, modules included reflection prompts, scenario-based checks, and downloadable job aids — a 1:1 template, a feedback framework card, and a hiring guide.</div>
+      </div>
+    </div>
+
+    <!-- WEEK BY WEEK -->
+    <div style="margin-top:3.5rem;">
+      <div class="section-tag">Week by Week</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--deep);margin-bottom:2rem;">Program <em>Curriculum Map</em></h3>
+      <div class="journey-map">
+        <div class="journey-header">
+          <div class="journey-week">Week 1</div>
+          <div class="journey-week">Week 2</div>
+          <div class="journey-week">Week 3</div>
+          <div class="journey-week">Week 4</div>
+          <div class="journey-week">Week 5</div>
+          <div class="journey-week">Week 6</div>
+          <div class="journey-week">Week 7</div>
+          <div class="journey-week">Week 8</div>
+        </div>
+        <div class="journey-label">Theme</div>
+        <div class="journey-row">
+          <div class="journey-cell active">The Mindset Shift</div>
+          <div class="journey-cell active">Running Effective 1:1s</div>
+          <div class="journey-cell active">Giving Feedback</div>
+          <div class="journey-cell active">Setting Expectations</div>
+          <div class="journey-cell active">Coaching & Development</div>
+          <div class="journey-cell active">Difficult Conversations</div>
+          <div class="journey-cell active">Team Dynamics</div>
+          <div class="journey-cell active">Leading Through Change</div>
+        </div>
+        <div class="journey-label">Synchronous</div>
+        <div class="journey-row">
+          <div class="journey-cell highlight">Full-day F2F Kickoff Workshop</div>
+          <div class="journey-cell highlight">60-min Zoom — Peer Practice</div>
+          <div class="journey-cell highlight">60-min Zoom — Role Play</div>
+          <div class="journey-cell highlight">60-min Zoom — Case Discussion</div>
+          <div class="journey-cell highlight">Full-day F2F Skills Lab</div>
+          <div class="journey-cell highlight">60-min Zoom — Practice Lab</div>
+          <div class="journey-cell highlight">60-min Zoom — Coaching Pairs</div>
+          <div class="journey-cell highlight">60-min Zoom — Graduation & Commitments</div>
+        </div>
+        <div class="journey-label">Async Module</div>
+        <div class="journey-row">
+          <div class="journey-cell">From IC to Leader — the identity shift</div>
+          <div class="journey-cell">The anatomy of a great 1:1</div>
+          <div class="journey-cell">The SBI (Situation, Behavior, Impact) feedback model in practice</div>
+          <div class="journey-cell">Setting clear goals & accountability</div>
+          <div class="journey-cell">Coaching vs. managing — knowing when</div>
+          <div class="journey-cell">Navigating hard conversations</div>
+          <div class="journey-cell">Understanding team stages & dynamics</div>
+          <div class="journey-cell">Leading your team through uncertainty</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPROACH -->
+  <div class="cs-section">
+    <div class="section-tag">Design Process</div>
+    <h2 class="section-heading">How It Was <em>Built</em></h2>
+    <div class="approach-steps">
+      <div class="approach-step">
+        <div class="step-num-col"><span class="step-num-label">01</span></div>
+        <div class="step-content">
+          <div class="step-title">Needs Analysis & Stakeholder Alignment</div>
+          <div class="step-desc">Conducted interviews with 24 stakeholders across HR, senior leadership, and the manager population. Reviewed exit data, engagement scores, and 360 feedback to build an evidence-based picture of the performance gaps. Presented findings to the CLO and VP of Engineering before a single module was designed.</div>
+        </div>
+      </div>
+      <div class="approach-step">
+        <div class="step-num-col"><span class="step-num-label">02</span></div>
+        <div class="step-content">
+          <div class="step-title">Curriculum Architecture & Modality Design</div>
+          <div class="step-desc">Mapped 8 learning objectives to the most appropriate modality — synchronous for practice-heavy skills, async for conceptual foundations. Designed the overall arc so each week built on the last, and both in-person workshops served as high-energy anchors that the cohort looked forward to.</div>
+        </div>
+      </div>
+      <div class="approach-step">
+        <div class="step-num-col"><span class="step-num-label">03</span></div>
+        <div class="step-content">
+          <div class="step-title">Content Development & Facilitation Guides</div>
+          <div class="step-desc">Developed all 8 async Rise modules, 6 Zoom session guides with facilitator scripts and breakout prompts, 2 in-person workshop decks with timing and facilitation notes, and 5 job aids for managers to use on the job — a 1:1 template, SBI feedback card, goal-setting guide, difficult conversation prep sheet, and a library of recorded coaching sessions. All materials were reviewed by an L&D SME and two experienced managers from the cohort target population.</div>
+        </div>
+      </div>
+      <div class="approach-step">
+        <div class="step-num-col"><span class="step-num-label">04</span></div>
+        <div class="step-content">
+          <div class="step-title">Pilot Cohort & Iteration</div>
+          <div class="step-desc">Ran a pilot cohort of 22 managers before full rollout. Collected mid-program pulse surveys, end-of-program evaluations, and 30-day post-program check-ins. Made 17 refinements to content, pacing, and facilitation design before scaling to subsequent cohorts.</div>
+        </div>
+      </div>
+      <div class="approach-step">
+        <div class="step-num-col"><span class="step-num-label">05</span></div>
+        <div class="step-content">
+          <div class="step-title">Train-the-Trainer Program & Scale</div>
+          <div class="step-desc">After delivering the first 4 cohorts of Coaching with Authenticity myself, I designed and ran a structured train-the-trainer program to certify internal facilitators. This included a facilitator guide, co-facilitation practicum, observation rubric, and a quality calibration process. Three internal L&D partners and HR business partners were certified, enabling the program to scale to 10 cohorts per year with consistently high quality.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN DECISIONS -->
+  <div class="cs-section">
+    <div class="section-tag">Design Decisions</div>
+    <h2 class="section-heading">Key <em>Design Choices</em> & Why</h2>
+    <div class="decision-grid">
+      <div class="decision-card">
+        <div class="decision-icon"><svg class="d-svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="decision-title">Cohort-Based Design Over Self-Paced</div>
+        <div class="decision-text">The program was deliberately cohort-based — managers moved through it together as a group rather than completing modules individually at their own pace.</div>
+        <div class="decision-why">Why: Research and needs analysis showed isolation was the root risk. Cohorts build the peer network that sustains managers long after the program ends.</div>
+      </div>
+      <div class="decision-card">
+        <div class="decision-icon"><svg class="d-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="decision-title">Async Before Synchronous — Every Week</div>
+        <div class="decision-text">Managers completed their async module before each live session. Synchronous time was never used to deliver content that could be consumed independently.</div>
+        <div class="decision-why">Why: Maximizes the value of live time together — every synchronous session could be 100% practice, discussion, and connection rather than passive listening.</div>
+      </div>
+      <div class="decision-card">
+        <div class="decision-icon"><svg class="d-svg" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="decision-title">Real Situations, Not Hypotheticals</div>
+        <div class="decision-text">Every practice scenario and role play was built from real situations submitted anonymously by managers in the needs analysis phase. No generic "imagine you have a struggling employee" prompts.</div>
+        <div class="decision-why">Why: Managers recognized their own situations. Engagement and transfer were dramatically higher when the practice felt real.</div>
+      </div>
+      <div class="decision-card">
+        <div class="decision-icon"><svg class="d-svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="decision-title">Job Aids Designed for the Moment of Need</div>
+        <div class="decision-text">Five practical job aids — a 1:1 template, SBI feedback card, goal-setting guide, difficult conversation prep sheet, and a library of recorded coaching sessions — were designed to be used in the flow of work, not just during training.</div>
+        <div class="decision-why">Why: Learning transfers when tools are available at the moment of need. These became lasting resources managers used well beyond the 8 weeks.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="cs-section" style="padding-bottom:0;border-bottom:none;">
+    <div class="results-section">
+      <div class="section-tag">Outcomes</div>
+      <h2 class="section-heading">The <em>Results</em></h2>
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-num">4.8/5</div>
+          <div class="result-label">Learner Satisfaction</div>
+          <div class="result-desc">Average satisfaction score across all cohorts — with 94% of participants rating the program as "directly applicable to my current role."</div>
+        </div>
+        <div class="result-card">
+          <div class="result-num">91%</div>
+          <div class="result-label">Completion Rate</div>
+          <div class="result-desc">Across all cohorts and modalities — including both mandatory synchronous sessions and self-paced async modules, a strong result for an 8-week blended program.</div>
+        </div>
+        <div class="result-card">
+          <div class="result-num">↓22%</div>
+          <div class="result-label">Team Attrition Reduction</div>
+          <div class="result-desc">Teams led by program graduates saw a 22% reduction in voluntary attrition in the 12 months following program completion — the business metric that mattered most.</div>
+        </div>
+        <div class="result-card">
+          <div class="result-num">↑14pts</div>
+          <div class="result-label">Engagement Score Improvement</div>
+          <div class="result-desc">Engagement scores in teams led by program graduates improved by 14 points on average at the next quarterly survey cycle, narrowing the gap with experienced manager teams.</div>
+        </div>
+        <div class="result-card">
+          <div class="result-num">200+</div>
+          <div class="result-label">Managers Developed</div>
+          <div class="result-desc">Over 200 first-time managers completed the program across 10 cohorts — creating a growing internal community of practice that continued beyond the formal program.</div>
+        </div>
+        <div class="result-card">
+          <div class="result-num">3</div>
+          <div class="result-label">Facilitators Certified</div>
+          <div class="result-desc">Through the train-the-trainer program, 3 internal L&D partners and HR business partners were certified to deliver Coaching with Authenticity — enabling 10 cohorts per year without external facilitation dependency.</div>
+        </div>
+      </div>
+
+      <div class="learner-voice">
+        <div class="lv-quote">I've been a manager for four months and this program gave me the language, the tools, and honestly the confidence to actually show up for my team. I only wish I'd had it on day one.</div>
+        <div class="lv-attr">— Software Engineering Manager, Cohort 3 Participant</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSONS -->
+  <div class="cs-section">
+    <div class="section-tag">Reflection</div>
+    <h2 class="section-heading">What I <em>Learned</em></h2>
+    <div class="body-text">
+      <p>Leadership development in a fast-moving startup environment is a unique design challenge. These are the three insights I carry forward from this engagement.</p>
+    </div>
+    <div class="lessons-grid">
+      <div class="lesson-card">
+        <div class="lesson-num">Lesson 01</div>
+        <div class="lesson-title">Peer connection is a learning outcome, not a nice-to-have</div>
+        <div class="lesson-text">The cohort relationships formed in this program were cited as the most valuable element in post-program surveys — above any specific skill or content. Designing for connection is as important as designing for knowledge transfer.</div>
+      </div>
+      <div class="lesson-card">
+        <div class="lesson-num">Lesson 02</div>
+        <div class="lesson-title">Blended design only works when each modality earns its place</div>
+        <div class="lesson-text">The temptation in blended programs is to replicate the same content across modalities. The discipline of assigning each modality a distinct job — async for concepts, synchronous for practice — is what made the program feel coherent rather than redundant.</div>
+      </div>
+      <div class="lesson-card">
+        <div class="lesson-num">Lesson 03</div>
+        <div class="lesson-title">Train-the-trainer success depends on transfer, not just training</div>
+        <div class="lesson-text">Certifying internal facilitators for Coaching with Authenticity required more than sharing materials — it required a practicum, observation rubric, and calibration sessions. Facilitators needed to experience the program as learners before they could deliver it with authenticity themselves.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- NEXT -->
+<div class="next-cs">
+  <div class="next-inner">
+    <div>
+      <div class="next-label">Next Case Study</div>
+      <div class="next-title">Payment Card Security Training Redesign</div>
+    </div>
+    <a href="casestudy-compliance.html" class="next-btn">View Case Study →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-copy">© 2025 Fikayo Adewumi, PhD. Instructional Designer &amp; L&amp;D Strategist.</div>
+  <div class="footer-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#work">Work</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.style.padding = window.scrollY > 60 ? '0.9rem 3.5rem' : '1.4rem 3.5rem';
+});
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.insight-card,.decision-card,.lesson-card,.result-card,.approach-step,.modality-card').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = `opacity 0.5s ease ${(i % 3) * 0.08}s, transform 0.5s ease ${(i % 3) * 0.08}s`;
+  obs.observe(el);
+});
+</script>
+</body>
+</html>

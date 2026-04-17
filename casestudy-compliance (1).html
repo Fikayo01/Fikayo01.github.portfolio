@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — Payment Card Security Training | Fikayo Adewumi, PhD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F5E9DA;
+  --warm-off: #F5E9DA;
+  --terracotta: #D97757;
+  --rust: #B85E3A;
+  --deep: #1A0F08;
+  --brown: #7C5A4B;
+  --sand: #D4A882;
+  --muted: #7C5A4B;
+  --light-muted: #C4A898;
+  --border: rgba(124,90,75,0.15);
+  --border-strong: rgba(124,90,75,0.25);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'DM Sans',sans-serif;background:var(--warm-off);color:var(--deep);overflow-x:hidden;line-height:1.6;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--cream);}
+::-webkit-scrollbar-thumb{background:var(--sand);border-radius:2px;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 3.5rem;background:rgba(245,233,218,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border);transition:padding 0.3s;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--brown);text-decoration:none;}
+.nav-back{font-size:0.72rem;font-weight:400;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.25s;}
+.nav-back:hover{color:var(--terracotta);}
+.nav-cta{font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--warm-off);background:var(--terracotta);padding:0.55rem 1.4rem;border-radius:2px;text-decoration:none;transition:background 0.25s;}
+.nav-cta:hover{background:var(--rust);}
+
+/* HERO */
+.cs-hero{min-height:70vh;background:var(--deep);display:flex;flex-direction:column;justify-content:flex-end;padding:8rem 0 5rem;position:relative;overflow:hidden;}
+.cs-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 30%,rgba(217,119,87,0.18) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(212,168,130,0.1) 0%,transparent 50%);pointer-events:none;}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 3.5rem;position:relative;z-index:1;}
+.cs-tag{font-size:0.65rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--sand);display:flex;align-items:center;gap:0.8rem;margin-bottom:1.5rem;}
+.cs-tag::before{content:'';display:inline-block;width:20px;height:1px;background:var(--sand);}
+.cs-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:300;line-height:1.1;color:var(--cream);max-width:800px;margin-bottom:2rem;letter-spacing:-0.01em;}
+.cs-hero-title em{font-style:italic;color:var(--sand);}
+.cs-meta{display:flex;gap:3rem;flex-wrap:wrap;}
+.meta-item{}
+.meta-label{font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;}
+.meta-val{font-size:0.88rem;font-weight:300;color:var(--light-muted);}
+
+/* METRICS BAR */
+.metrics-bar{background:var(--terracotta);padding:2.5rem 0;}
+.metrics-inner{max-width:1200px;margin:0 auto;padding:0 3.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-left:1px solid rgba(255,255,255,0.15);}
+.metric-box{padding:0 2.5rem;border-right:1px solid rgba(255,255,255,0.15);text-align:center;}
+.metric-big{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:#fff;line-height:1;}
+.metric-desc{font-size:0.7rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:0.4rem;}
+
+/* CONTENT */
+.cs-content{max-width:1200px;margin:0 auto;padding:0 3.5rem;}
+
+/* SECTIONS */
+.cs-section{padding:5rem 0;border-bottom:0.5px solid var(--border);}
+.cs-section:last-child{border-bottom:none;}
+.section-tag{font-size:0.65rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--terracotta);display:flex;align-items:center;gap:0.8rem;margin-bottom:1rem;}
+.section-tag::before{content:'';display:inline-block;width:20px;height:1px;background:var(--terracotta);}
+.section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;line-height:1.2;color:var(--deep);margin-bottom:1.5rem;letter-spacing:-0.01em;}
+.section-heading em{font-style:italic;color:var(--terracotta);}
+.body-text{font-size:1rem;font-weight:300;line-height:1.9;color:var(--brown);max-width:720px;}
+.body-text p+p{margin-top:1.2rem;}
+.body-text strong{font-weight:500;color:var(--deep);}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5px;margin-top:2.5rem;border:1px solid var(--border);border-radius:2px;overflow:hidden;}
+
+/* PROBLEM SECTION */
+.problem-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:start;}
+.problem-visual{background:var(--deep);border-radius:2px;padding:3rem;position:relative;overflow:hidden;}
+.problem-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 20% 80%,rgba(217,119,87,0.15) 0%,transparent 60%);}
+.stat-highlight{position:relative;z-index:1;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(245,233,218,0.08);}
+.stat-highlight:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.stat-big{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--terracotta);line-height:1;}
+.stat-context{font-size:0.82rem;font-weight:300;color:var(--light-muted);line-height:1.6;margin-top:0.5rem;}
+
+/* INSIGHT CARDS */
+.insight-card{background:#fff;border:1px solid var(--border);border-radius:2px;padding:1.8rem;transition:border-color 0.25s;}
+.insight-card:hover{border-color:var(--terracotta);}
+.insight-num{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--terracotta);letter-spacing:0.1em;margin-bottom:0.8rem;}
+.insight-title{font-size:0.9rem;font-weight:500;color:var(--deep);margin-bottom:0.5rem;}
+.insight-text{font-size:0.8rem;font-weight:300;color:var(--muted);line-height:1.65;}
+
+/* APPROACH */
+.approach-steps{display:flex;flex-direction:column;gap:0;margin-top:2.5rem;border:1px solid var(--border);border-radius:2px;overflow:hidden;}
+.approach-step{display:grid;grid-template-columns:80px 1fr;gap:0;border-bottom:1px solid var(--border);transition:background 0.25s;}
+.approach-step:last-child{border-bottom:none;}
+.approach-step:hover{background:rgba(217,119,87,0.03);}
+.step-num-col{padding:2rem;border-right:1px solid var(--border);display:flex;align-items:flex-start;justify-content:center;}
+.step-num-label{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--terracotta);letter-spacing:0.1em;}
+.step-content{padding:2rem 2.5rem;}
+.step-title{font-size:0.95rem;font-weight:500;color:var(--deep);margin-bottom:0.5rem;}
+.step-desc{font-size:0.85rem;font-weight:300;color:var(--muted);line-height:1.7;}
+
+/* DESIGN DECISIONS */
+.decision-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;margin-top:2.5rem;border:1px solid var(--border);border-radius:2px;overflow:hidden;}
+.decision-card{background:#fff;padding:2.2rem;transition:background 0.25s;}
+.decision-card:hover{background:var(--cream);}
+.decision-icon{width:40px;height:40px;border-radius:50%;border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;}
+.d-svg{width:17px;height:17px;stroke:var(--terracotta);stroke-width:1.5;fill:none;}
+.decision-title{font-size:0.9rem;font-weight:500;color:var(--deep);margin-bottom:0.5rem;}
+.decision-text{font-size:0.8rem;font-weight:300;color:var(--muted);line-height:1.65;}
+.decision-why{font-size:0.72rem;font-weight:500;color:var(--terracotta);margin-top:0.8rem;letter-spacing:0.05em;}
+
+/* RESULTS */
+.results-section{background:var(--deep);margin:0 -3.5rem;padding:5rem 3.5rem;}
+.results-section .section-heading{color:var(--cream);}
+.results-section .section-tag{color:var(--sand);}
+.results-section .section-tag::before{background:var(--sand);}
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;margin-top:3rem;border:1px solid rgba(245,233,218,0.08);border-radius:2px;overflow:hidden;}
+.result-card{background:rgba(245,233,218,0.03);padding:2.5rem 2rem;border-right:1px solid rgba(245,233,218,0.08);transition:background 0.3s;}
+.result-card:last-child{border-right:none;}
+.result-card:hover{background:rgba(217,119,87,0.07);}
+.result-num{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:300;color:var(--sand);line-height:1;margin-bottom:0.5rem;}
+.result-label{font-size:0.75rem;font-weight:500;color:var(--cream);margin-bottom:0.5rem;}
+.result-desc{font-size:0.78rem;font-weight:300;color:var(--light-muted);line-height:1.6;}
+
+/* LEARNER VOICE */
+.learner-voice{background:var(--cream);border:1px solid var(--border);border-radius:2px;padding:3.5rem;margin-top:3rem;position:relative;}
+.lv-quote{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;font-style:italic;color:var(--brown);line-height:1.6;max-width:700px;}
+.lv-quote::before{content:'\201C';font-size:4rem;color:var(--terracotta);opacity:0.3;display:block;line-height:1;margin-bottom:-0.8rem;}
+.lv-attr{font-size:0.75rem;color:var(--muted);margin-top:1.5rem;letter-spacing:0.05em;}
+
+/* LESSONS */
+.lessons-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5px;margin-top:2.5rem;border:1px solid var(--border);border-radius:2px;overflow:hidden;}
+.lesson-card{background:#fff;padding:2rem;transition:background 0.25s;}
+.lesson-card:hover{background:var(--cream);}
+.lesson-num{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--terracotta);letter-spacing:0.1em;margin-bottom:0.8rem;}
+.lesson-title{font-size:0.9rem;font-weight:500;color:var(--deep);margin-bottom:0.5rem;}
+.lesson-text{font-size:0.8rem;font-weight:300;color:var(--muted);line-height:1.65;}
+
+/* NEXT CASE STUDY */
+.next-cs{background:var(--terracotta);padding:4rem 0;margin-top:0;}
+.next-inner{max-width:1200px;margin:0 auto;padding:0 3.5rem;display:flex;justify-content:space-between;align-items:center;}
+.next-label{font-size:0.65rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.5rem;}
+.next-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:#fff;line-height:1.2;}
+.next-btn{font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--terracotta);background:#fff;padding:0.85rem 2rem;border-radius:2px;text-decoration:none;white-space:nowrap;transition:background 0.25s;flex-shrink:0;margin-left:3rem;}
+.next-btn:hover{background:var(--cream);}
+
+footer{background:var(--deep);border-top:1px solid rgba(245,233,218,0.06);padding:2.5rem 3.5rem;display:flex;justify-content:space-between;align-items:center;}
+.footer-copy{font-size:0.72rem;font-weight:300;color:rgba(196,168,152,0.45);letter-spacing:0.05em;}
+.footer-links{display:flex;gap:2rem;}
+.footer-links a{font-size:0.68rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,168,152,0.35);text-decoration:none;transition:color 0.25s;}
+.footer-links a:hover{color:var(--sand);}
+
+@media(max-width:1024px){
+  nav{padding:1.2rem 2rem;}
+  .hero-inner,.cs-content{padding:0 2rem;}
+  .metrics-inner{grid-template-columns:repeat(2,1fr);}
+  .problem-grid,.two-col{grid-template-columns:1fr;gap:3rem;}
+  .decision-grid,.lessons-grid,.three-col{grid-template-columns:1fr;}
+  .results-grid{grid-template-columns:1fr;}
+  .results-section{margin:0 -2rem;padding:4rem 2rem;}
+  .next-inner{flex-direction:column;gap:2rem;text-align:center;}
+  .next-btn{margin-left:0;}
+  footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem;}
+}
+@media(max-width:640px){
+  .cs-meta{flex-direction:column;gap:1.5rem;}
+  .metrics-inner{grid-template-columns:1fr 1fr;}
+  .approach-step{grid-template-columns:60px 1fr;}
+}
+
+.cs-image-placeholder{width:100%;aspect-ratio:16/9;background:var(--deep);border-radius:2px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.8rem;margin-top:3rem;border:1px dashed rgba(245,233,218,0.15);position:relative;overflow:hidden;}
+.cs-image-placeholder::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(217,119,87,0.08) 0%,transparent 70%);}
+.cs-image-icon{width:48px;height:48px;border-radius:50%;border:1px solid rgba(245,233,218,0.15);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;}
+.cs-image-hint{font-size:0.7rem;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:rgba(196,168,152,0.4);position:relative;z-index:1;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Fikayo Adewumi, PhD</a>
+  <a href="index.html#work" class="nav-back">← Back to Portfolio</a>
+  <a href="index.html#contact" class="nav-cta">Let's Connect</a>
+</nav>
+
+<!-- HERO -->
+<section class="cs-hero">
+  <div class="hero-inner">
+    <div class="cs-tag">Case Study — Payment Card Security</div>
+    <h1 class="cs-hero-title">Turning Payment Card Security Training from a Checkbox <em>into a Conversation</em></h1>
+    <div class="cs-meta">
+      <div class="meta-item"><div class="meta-label">Industry</div><div class="meta-val">Financial Services</div></div>
+      <div class="meta-item"><div class="meta-label">Scope</div><div class="meta-val">3,500 Learners</div></div>
+      <div class="meta-item"><div class="meta-label">Duration</div><div class="meta-val">14 Weeks</div></div>
+      <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-val">Lead Instructional Designer</div></div>
+      <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-val">Articulate Storyline, Rise, Envato, WellSaid, GenAI</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS BAR -->
+<div class="metrics-bar">
+  <div class="metrics-inner">
+    <div class="metric-box"><div class="metric-big">94%</div><div class="metric-desc">Completion Rate</div></div>
+    <div class="metric-box"><div class="metric-big">↑41%</div><div class="metric-desc">vs. Previous Year</div></div>
+    <div class="metric-box"><div class="metric-big">88%</div><div class="metric-desc">Knowledge Retention</div></div>
+    <div class="metric-box"><div class="metric-big">4.7/5</div><div class="metric-desc">Learner Satisfaction</div></div>
+  </div>
+</div>
+
+<div class="cs-content">
+      <div class="cs-image-placeholder">
+        <div class="cs-image-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(196,168,152,0.4)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <div class="cs-image-hint">Add project image here</div>
+      </div>
+
+  <!-- OVERVIEW -->
+  <div class="cs-section">
+    <div class="two-col">
+      <div>
+        <div class="section-tag">Overview</div>
+        <h2 class="section-heading">The <em>Situation</em></h2>
+        <div class="body-text">
+          <p>A national financial services company with over 3,500 sales representatives was facing a critical payment card security problem. Their annual PCI DSS (Payment Card Industry Data Security Standard) security training — a mandatory requirement under federal and industry regulations — had a <strong>53% completion rate</strong> and was generating consistent negative feedback from both learners and managers.</p>
+          <p>The existing program was a series of click-through slides with embedded quizzes that tested memorization of policy language. Learners described it as "irrelevant," "punishing," and "a waste of time." Meanwhile, payment card security incidents were rising, suggesting the training wasn't producing the behavioral change the organization needed.</p>
+          <p>I was brought in to diagnose the root cause and redesign the program from the ground up — with a mandate to improve both completion and real-world PCI-compliant behavior.</p>
+        </div>
+      </div>
+      <div>
+        <div class="section-tag">The Core Problem</div>
+        <h2 class="section-heading">It Wasn't a <em>Content Problem</em></h2>
+        <div class="body-text">
+          <p>The instinct from the compliance team was to add more content — more policies, more examples, more detail. My needs analysis revealed something different: <strong>learners already knew the rules</strong>. The gap was in application.</p>
+          <p>Sales reps couldn't connect abstract regulatory language to the real customer conversations they were having every day. The training spoke the language of legal policy, not the language of day-to-day cardholder data handling. Without that bridge, knowledge didn't transfer into secure behaviors on the job.</p>
+          <p>The solution wasn't more information. It was better context.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <div class="cs-section">
+    <div class="problem-grid">
+      <div>
+        <div class="section-tag">Discovery & Diagnosis</div>
+        <h2 class="section-heading">What the <em>Data Revealed</em></h2>
+        <div class="body-text">
+          <p>Before designing anything, I spent three weeks in deep discovery — interviewing sales reps, managers, PCI compliance officers, and reviewing LMS data, incident reports, and prior training evaluations.</p>
+          <p>The picture that emerged was consistent: learners weren't disengaged because they didn't care about compliance. They were disengaged because <strong>the training didn't respect their expertise or their context</strong>. They were experienced professionals being talked at like beginners.</p>
+          <p>Three root causes emerged from the analysis that shaped every design decision that followed.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1.5px;margin-top:2rem;border:1px solid var(--border);border-radius:2px;overflow:hidden;">
+          <div class="insight-card" style="border:none;border-bottom:1px solid var(--border);border-radius:0;">
+            <div class="insight-num">Finding 01</div>
+            <div class="insight-title">No Connection to Real Work</div>
+            <div class="insight-text">100% of scenarios in the existing training were fabricated abstractions with no resemblance to actual sales conversations. Reps couldn't see themselves in the content.</div>
+          </div>
+          <div class="insight-card" style="border:none;border-bottom:1px solid var(--border);border-radius:0;">
+            <div class="insight-num">Finding 02</div>
+            <div class="insight-title">Passive Consumption, No Practice</div>
+            <div class="insight-text">The existing format required zero decision-making. Learners clicked through without ever being asked to apply judgment — the very skill secure card handling requires.</div>
+          </div>
+          <div class="insight-card" style="border:none;border-radius:0;">
+            <div class="insight-num">Finding 03</div>
+            <div class="insight-title">Feedback Was Punitive, Not Educational</div>
+            <div class="insight-text">Wrong answers resulted in "Incorrect — try again" with no explanation. Learners learned to click until they guessed right, not until they understood why.</div>
+          </div>
+        </div>
+      </div>
+      <div class="problem-visual">
+        <div class="stat-highlight">
+          <div class="stat-big">53%</div>
+          <div class="stat-context">Completion rate before redesign — nearly half the sales force wasn't finishing mandatory PCI security training</div>
+        </div>
+        <div class="stat-highlight">
+          <div class="stat-big">↑28%</div>
+          <div class="stat-context">Rise in payment card security incidents over 18 months prior to the redesign engagement</div>
+        </div>
+        <div class="stat-highlight">
+          <div class="stat-big">2.1/5</div>
+          <div class="stat-context">Average learner satisfaction score on the previous training program</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPROACH -->
+  <div class="cs-section">
+    <div class="section-tag">Instructional Approach</div>
+    <h2 class="section-heading">Designing for <em>Decision-Making</em></h2>
+    <div class="body-text">
+      <p>The redesign was built around a single principle: <strong>knowing PCI DSS rules is not enough — learners need to recognize when and how those rules apply in real situations</strong>. The new program would put learners inside realistic situations and ask them to make the same decisions they make every day — then give them meaningful feedback that built understanding, not just correct answers.</p>
+    </div>
+    <div class="approach-steps">
+      <div class="approach-step">
+        <div class="step-num-col"><span class="step-num-label">01</span></div>
+        <div class="step-content">
+          <div class="step-title">Stakeholder & SME Alignment</div>
+          <div class="step-desc">Facilitated workshops with PCI compliance officers, legal, and senior sales managers to identify the 12 highest-risk real-world scenarios. Every scenario in the final program was validated by both compliance and sales leadership as authentic to the sales rep experience.</div>
+        </div>
+      </div>
+      <div class="approach-step">
+        <div class="step-num-col"><span class="step-num-label">02</span></div>
+        <div class="step-content">
+          <div class="step-title">Scenario Architecture & Branching Design</div>
+          <div class="step-desc">Designed a branching scenario framework where each module placed the learner in a named customer conversation with realistic dialogue. Choices led to branched consequences — some immediate, some revealed later — mirroring how PCI violations actually unfold in the field.</div>
+        </div>
+      </div>
+      <div class="approach-step">
+        <div class="step-num-col"><span class="step-num-label">03</span></div>
+        <div class="step-content">
+          <div class="step-title">Feedback as Coaching, Not Grading</div>
+          <div class="step-desc">Every decision point — right or wrong — triggered a contextual feedback layer explaining the PCI security principle at stake, what a compliance officer would see, and what the downstream risk would be. Learners received a rationale, not just a verdict.</div>
+        </div>
+      </div>
+      <div class="approach-step">
+        <div class="step-num-col"><span class="step-num-label">04</span></div>
+        <div class="step-content">
+          <div class="step-title">Pilot Testing & Iteration</div>
+          <div class="step-desc">Ran a 3-week pilot with 150 reps across two regional offices. Collected think-aloud feedback, LMS completion data, and pre/post knowledge assessments. Made 23 targeted revisions before full rollout based on pilot findings.</div>
+        </div>
+      </div>
+      <div class="approach-step">
+        <div class="step-num-col"><span class="step-num-label">05</span></div>
+        <div class="step-content">
+          <div class="step-title">Phased Rollout & Manager Enablement</div>
+          <div class="step-desc">Deployed in regional cohorts over 6 weeks with manager briefing guides so frontline leaders could reinforce key concepts in team meetings. Compliance team received a real-time dashboard to monitor progress and flag at-risk regions.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN DECISIONS -->
+  <div class="cs-section">
+    <div class="section-tag">Design Decisions</div>
+    <h2 class="section-heading">Key <em>Design Choices</em> & Why</h2>
+    <div class="decision-grid">
+      <div class="decision-card">
+        <div class="decision-icon"><svg class="d-svg" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div class="decision-title">Named Characters with Real Sales Contexts</div>
+        <div class="decision-text">Instead of generic "Customer A," each scenario featured named customers with specific financial situations, goals, and pressures — mirroring the complexity of real sales conversations.</div>
+        <div class="decision-why">Why: Learner recognition and emotional engagement increases transfer. Reps saw themselves in the scenarios.</div>
+      </div>
+      <div class="decision-card">
+        <div class="decision-icon"><svg class="d-svg" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div class="decision-title">Consequence Delays Mirroring Real Risk</div>
+        <div class="decision-text">Some poor decisions didn't trigger immediate feedback — consequences appeared 2-3 screens later, just as PCI violations often only surface weeks after an interaction occurs.</div>
+        <div class="decision-why">Why: Delayed consequences teach learners that short-term comfort can mask long-term risk — a critical insight for PCI-compliant behavior.</div>
+      </div>
+      <div class="decision-card">
+        <div class="decision-icon"><svg class="d-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <div class="decision-title">No "Obviously Wrong" Answers</div>
+        <div class="decision-text">Every choice was written to be plausible. Distractors reflected common rationalizations real reps actually make — "the customer asked me to," "it's just this once," "my manager said it was fine."</div>
+        <div class="decision-why">Why: Realistic distractors force genuine deliberation rather than answer-spotting, building real decision-making muscle.</div>
+      </div>
+      <div class="decision-card">
+        <div class="decision-icon"><svg class="d-svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="decision-title">PCI Standards Reference on Demand</div>
+        <div class="decision-text">Rather than front-loading policy text, PCI DSS references were available as optional "dig deeper" resources within the feedback layer — accessible but not mandatory.</div>
+        <div class="decision-why">Why: Respects experienced learners' time while giving detail-oriented learners the depth they want.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="cs-section" style="padding-bottom:0;border-bottom:none;">
+    <div class="results-section">
+      <div class="section-tag">Outcomes</div>
+      <h2 class="section-heading">The <em>Results</em></h2>
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-num">94%</div>
+          <div class="result-label">Completion Rate</div>
+          <div class="result-desc">Up from 53% the prior year — a 41-point improvement achieved without any changes to policy, incentives, or manager enforcement.</div>
+        </div>
+        <div class="result-card">
+          <div class="result-num">88%</div>
+          <div class="result-label">Knowledge Retention at 30 Days</div>
+          <div class="result-desc">Post-training assessment at 30 days showed 88% of learners retained core PCI security principles, vs. 61% under the previous program.</div>
+        </div>
+        <div class="result-card">
+          <div class="result-num">↓34%</div>
+          <div class="result-label">Compliance Incidents</div>
+          <div class="result-desc">Reported payment card security incidents dropped 34% in the 6 months following rollout — the metric that ultimately mattered most.</div>
+        </div>
+        <div class="result-card">
+          <div class="result-num">4.7/5</div>
+          <div class="result-label">Learner Satisfaction</div>
+          <div class="result-desc">Average satisfaction score across all cohorts — up from 2.1/5 on the previous program. Net Promoter Score moved from -22 to +41.</div>
+        </div>
+        <div class="result-card">
+          <div class="result-num">12</div>
+          <div class="result-label">Scenarios Developed</div>
+          <div class="result-desc">Twelve fully-branched, SME-validated scenario modules covering the highest-risk PCI compliance areas in the sales workflow.</div>
+        </div>
+        <div class="result-card">
+          <div class="result-num">3,500</div>
+          <div class="result-label">Learners Reached</div>
+          <div class="result-desc">Full rollout completed across all regional sales offices within a 6-week phased deployment window, on time and within budget.</div>
+        </div>
+      </div>
+
+      <div class="learner-voice">
+        <div class="lv-quote">This was the first PCI security training I've done in 12 years that actually made me think. I found myself in those scenarios. That's never happened before.</div>
+        <div class="lv-attr">— Senior Sales Representative, Midwest Region (Pilot Cohort Feedback)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSONS LEARNED -->
+  <div class="cs-section">
+    <div class="section-tag">Reflection</div>
+    <h2 class="section-heading">What I <em>Learned</em></h2>
+    <div class="body-text">
+      <p>Every project teaches something. These are the three insights from this engagement I carry into every payment card security project I take on.</p>
+    </div>
+    <div class="lessons-grid">
+      <div class="lesson-card">
+        <div class="lesson-num">Lesson 01</div>
+        <div class="lesson-title">PCI security problems are almost never content problems</div>
+        <div class="lesson-text">The instinct is always to add more policy language or more requirements. In nearly every PCI training redesign I've done, the gap is application — learners know the rules but don't recognize when they apply. Diagnose before you design.</div>
+      </div>
+      <div class="lesson-card">
+        <div class="lesson-num">Lesson 02</div>
+        <div class="lesson-title">Authentic scenarios require authentic research</div>
+        <div class="lesson-text">The scenarios that resonated most came directly from interviews with reps — their words, their rationalizations, their actual customer situations. No amount of SME review replaces time spent with the real audience.</div>
+      </div>
+      <div class="lesson-card">
+        <div class="lesson-num">Lesson 03</div>
+        <div class="lesson-title">Pilot testing is non-negotiable</div>
+        <div class="lesson-text">The 23 revisions made after the pilot were not small tweaks — several were fundamental to how scenarios branched and how feedback was framed. Skipping the pilot would have shipped a significantly weaker product.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end cs-content -->
+
+<!-- NEXT CASE STUDY -->
+<div class="next-cs">
+  <div class="next-inner">
+    <div>
+      <div class="next-label">Next Case Study</div>
+      <div class="next-title">New Manager Learning Journey — 8-Week Blended Program</div>
+    </div>
+    <a href="index.html#work" class="next-btn">View All Work →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-copy">© 2025 Fikayo Adewumi, PhD. Instructional Designer &amp; L&amp;D Strategist.</div>
+  <div class="footer-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#work">Work</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.style.padding = window.scrollY > 60 ? '0.9rem 3.5rem' : '1.4rem 3.5rem';
+});
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.insight-card,.decision-card,.lesson-card,.result-card,.approach-step').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = `opacity 0.5s ease ${(i % 3) * 0.08}s, transform 0.5s ease ${(i % 3) * 0.08}s`;
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
